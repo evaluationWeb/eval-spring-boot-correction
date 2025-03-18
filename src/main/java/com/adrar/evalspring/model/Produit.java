@@ -23,6 +23,10 @@ public class Produit {
     @Min(value = 0, message = "Le prix du produit doit être positif")
     private Double prix;
 
+    @ManyToOne
+    @JoinColumn(name = "categorie_id")
+    private Categorie categorie;
+
     public Produit() {}
 
     public Produit(String nom, Double prix) {
@@ -52,5 +56,11 @@ public class Produit {
 
     public void setPrix(Double prix) {
         this.prix = prix;
+    }
+    public Categorie getCategorie() {
+        return categorie;
+    }
+    public void setCategorie(Categorie categorie) {
+        this.categorie = categorie;
     }
 }
